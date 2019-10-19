@@ -1,5 +1,8 @@
 <mat-toolbar color="primary">
-  <a class="navbar-brand" routerLink="/">{{title}}</a>
+  <a class="navbar-brand" routerLink="/">{{ title }}</a>
+  <form (ngSubmit)="searchMovies(searchTerms)" class="form-inline">
+    <input [(ngModel)]="searchTerms" name="searchTerms" class="form-control" type="search" placeholder="Search for movies">
+  </form>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

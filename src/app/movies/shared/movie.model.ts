@@ -13,3 +13,10 @@ export interface Movie {
   original_language?: string;
   overview?: string;
 }
+
+export interface MoviesResp {
+  page: number;
+  total_results: number;
+  total_pages: number;
+  results: Movie[];
+}

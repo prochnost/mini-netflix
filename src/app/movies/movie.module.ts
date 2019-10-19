@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MovieService } from './shared/index';
+import { MovieService } from './shared';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 
 const ROUTES: Routes = [
