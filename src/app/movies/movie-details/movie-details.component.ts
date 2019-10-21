@@ -27,6 +27,16 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
 
+  addFavorite() {
+    let favorites = sessionStorage.getItem('favoriteMovies');
+    if (favorites === null) {
+      sessionStorage.setItem('favoriteMovies', this.movie.id.toString());
+    } else if (favorites.indexOf(this.movie.id.toString()) === -1) {
+      favorites = favorites + '-' + this.movie.id;
+      sessionStorage.setItem('favoriteMovies', favorites);
+    }
+  }
+
   private getMovie(id): void {
     this.ratingColors = [];
     this.genreNames = [];

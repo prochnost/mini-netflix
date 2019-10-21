@@ -1,7 +1,9 @@
 <h1 class="h3 pt-3">All Movies</h1>
 <mat-grid-list [cols]="(isSmallScreen | async) ? 2 : ((isMediumScreen | async) ? 4 : 5 )" rowHeight="7:5" gutterSize="10px">
   <mat-grid-tile *ngFor="let movie of movies" [routerLink]="['/movies', movie.id]">
-    <mat-grid-tile-header>{{ movie.title }}</mat-grid-tile-header>
+    <mat-grid-tile-header>
+      <mat-icon *ngIf="favorites.indexOf(movie.id.toString()) > -1" color="accent">favorite</mat-icon>{{ movie.title }}
+    </mat-grid-tile-header>
     <img [src]="movie.poster_url" [alt]="movie.original_title">
     <mat-grid-tile-footer>{{ movie.release_date | date }}</mat-grid-tile-footer>
   </mat-grid-tile>

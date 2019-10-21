@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MovieService } from './shared';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
@@ -25,7 +26,8 @@ const ROUTES: Routes = [
     MatListModule,
     MatChipsModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   declarations: [
     MoviesListComponent,

@@ -14,6 +14,10 @@
     </mat-list>
     <br>
     <p>{{ movie?.overview }}</p>
+    <br>
+    <button mat-raised-button color="primary" type="button" (click)="addFavorite()">
+      <mat-icon>add</mat-icon>&nbsp;Add to My Favorites
+    </button>
   </div>
   <div class="col-md-4">
     <img [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movie?.backdrop_path" [alt]="movie?.original_title">

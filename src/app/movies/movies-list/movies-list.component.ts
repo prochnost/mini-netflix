@@ -17,6 +17,7 @@ export class MoviesListComponent implements OnInit {
   isMediumScreen: Observable<boolean>;
   movies: Movie[];
   pageEvent: PageEvent = { pageIndex: 0, pageSize: 20, length: 20 };
+  favorites: string;
 
   constructor(
     private movieService: MovieService,
@@ -34,6 +35,8 @@ export class MoviesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies(1);
+    const fav = sessionStorage.getItem('favoriteMovies');
+    this.favorites = fav === null ? '' : fav;
   }
 
   updatePageData(e) {

@@ -2,6 +2,6 @@ mat-toolbar > a {
   color: #fff;
 }
 
-.container-fluid:first-of-type {
+.container-fluid {
   background-color: #222;
 }
