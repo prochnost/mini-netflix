@@ -1,0 +1,8 @@
+mat-nav-list img {
+  height: 90%;
+}
+
+[mat-list-item] {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 5px;
+}

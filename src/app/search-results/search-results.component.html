@@ -1,9 +1,9 @@
-<h2 mat-dialog-title>{{ movies.length === 0 ? 'No' : totalResults }} movies found for "{{ searchTerms }}":</h2>
+<h2 mat-dialog-title>{{ movies.length === 0 ? 'No' : totalResults }} movies found for "{{ searchTerms }}"</h2>
 
 <mat-dialog-content>
   <mat-nav-list>
-    <a mat-list-item *ngFor="let movie of movies" href="#">
-      <img mat-list-avatar [src]="movie.poster_url" [alt]="movie.original_title">
+    <a mat-list-item *ngFor="let movie of movies" class="rounded" [routerLink]="['movies', movie.id]" (click)="closeModal()">
+      <img [src]="movie.poster_url" [alt]="movie.original_title">
       <h3 mat-line>{{ movie.title }}</h3>
       <p mat-line >{{ movie.release_date | date }}</p>
     </a>

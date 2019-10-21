@@ -1,0 +1,11 @@
+img {
+  width: 100%;
+}
+
+mat-list-item, p {
+  color: #ccc !important;
+}
+
+mat-icon, div > i, small {
+  color: #ccc;
+}

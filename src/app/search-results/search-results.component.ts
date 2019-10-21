@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Movie, MoviesResp, MovieService } from '../movies/shared';
 import { ExceptionsService } from '../common';
 
@@ -17,6 +18,8 @@ export class SearchResultsComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: { searchResults: MoviesResp, searchTerms: string },
+    private dialogRef: MatDialogRef<SearchResultsComponent>,
+    private router: Router,
     private movieService: MovieService,
     private exceptions: ExceptionsService
   ) { }
@@ -35,6 +38,10 @@ export class SearchResultsComponent implements OnInit {
         )
       : []
     ;
+  }
+
+  closeModal() {
+    this.dialogRef.close();
   }
 
   loadMore() {

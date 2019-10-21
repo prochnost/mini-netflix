@@ -1,12 +1,10 @@
-<div class="container-fluid">
-  <h1 class="h3">All Movies</h1>
-  <mat-grid-list [cols]="(isSmallScreen | async) ? 2 : ((isMediumScreen | async) ? 4 : 5 )" rowHeight="5:7" gutterSize="10px">
-    <mat-grid-tile *ngFor="let movie of movies">
-      <mat-grid-tile-header>{{ movie.title }}</mat-grid-tile-header>
-      <img [src]="movie.poster_url" [alt]="movie.original_title">
-      <mat-grid-tile-footer>{{ movie.release_date | date }}</mat-grid-tile-footer>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <mat-paginator [length]="pageEvent?.length" [pageSize]="pageEvent?.pageSize" [pageIndex]="pageEvent?.pageIndex"
-    [showFirstLastButtons]="true" (page)="updatePageData($event)"></mat-paginator>
-</div>
+<h1 class="h3 pt-3">All Movies</h1>
+<mat-grid-list [cols]="(isSmallScreen | async) ? 2 : ((isMediumScreen | async) ? 4 : 5 )" rowHeight="7:5" gutterSize="10px">
+  <mat-grid-tile *ngFor="let movie of movies" [routerLink]="['/movies', movie.id]">
+    <mat-grid-tile-header>{{ movie.title }}</mat-grid-tile-header>
+    <img [src]="movie.poster_url" [alt]="movie.original_title">
+    <mat-grid-tile-footer>{{ movie.release_date | date }}</mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-paginator [length]="pageEvent?.length" [pageSize]="pageEvent?.pageSize" [pageIndex]="pageEvent?.pageIndex"
+  [showFirstLastButtons]="true" (page)="updatePageData($event)"></mat-paginator>

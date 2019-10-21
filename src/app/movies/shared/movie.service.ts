@@ -12,11 +12,11 @@ export class MovieService {
   constructor(private http: HttpClient) { }
 
   getMovies(pageNumber: number): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}movie/top_rated${this.params}&page=${pageNumber}`);
+    return this.http.get<any>(`${this.baseUrl}movie/popular${this.params}&page=${pageNumber}`);
   }
 
   getMovie(id: number): Observable<any> {
-    return this.http.get<any>(this.baseUrl + id + this.params);
+    return this.http.get<any>(`${this.baseUrl}movie/${id}${this.params}`);
   }
 
   searchMovies(searchTerm: string, page: number): Observable<any> {
