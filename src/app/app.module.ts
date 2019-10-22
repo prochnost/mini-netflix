@@ -14,7 +14,6 @@ import { MovieModule } from './movies/movie.module';
 import { AppComponent } from './app.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { Error404Component } from './errors/404.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
@@ -22,8 +21,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
   declarations: [
     AppComponent,
     SearchResultsComponent,
-    Error404Component,
-    SidenavComponent
+    Error404Component
   ],
   entryComponents: [
     SearchResultsComponent
