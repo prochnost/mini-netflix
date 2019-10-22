@@ -3,7 +3,12 @@
   <form (ngSubmit)="searchMovies(searchTerms)" class="form-inline">
     <input [(ngModel)]="searchTerms" name="searchTerms" class="form-control" type="search" placeholder="Search for movies">
   </form>
-  <a class="nav-link float-right" routerLink="/movies">Movies</a>
+  <a class="nav-link float-right" routerLink="/movies" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <mat-icon *ngIf="isSmallScreen | async">movie</mat-icon><span *ngIf="!(isSmallScreen | async)">Movies</span>
+  </a>
+  <a class="nav-link float-right" routerLink="/movies/favorites" routerLinkActive="active">
+    <mat-icon *ngIf="isSmallScreen | async">favorite</mat-icon><span *ngIf="!(isSmallScreen | async)">Favorites</span>
+  </a>
 </mat-toolbar>
 
 <div class="container-fluid text-white">

@@ -11,9 +11,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MovieService } from './shared';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const ROUTES: Routes = [
   { path: 'movies', component: MoviesListComponent },
+  { path: 'movies/favorites', component: FavoritesComponent },
   { path: 'movies/:id', component: MovieDetailsComponent }
 ];
 
@@ -31,7 +33,8 @@ const ROUTES: Routes = [
   ],
   declarations: [
     MoviesListComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    FavoritesComponent
   ],
   providers: [
     MovieService

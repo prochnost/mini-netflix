@@ -1,6 +1,9 @@
 <div class="row">
   <div class="col-md-8 my-3">
-    <h1>{{ movie?.title }}</h1>
+    <h1>
+      {{ movie?.title }}
+      <span *ngIf="isFavorite(movie?.id) | async">&nbsp;&nbsp;<mat-icon color="accent">favorite</mat-icon></span>
+    </h1>
     <div *ngIf="!!movie?.release_date"><i>Released on {{ movie?.release_date | date }}</i></div>
     <div>
       <mat-icon *ngFor="let color of ratingColors" inline [color]="color">star</mat-icon>
@@ -15,11 +18,11 @@
     <br>
     <p>{{ movie?.overview }}</p>
     <br>
-    <button mat-raised-button color="primary" type="button" (click)="addFavorite()">
+    <button *ngIf="!(isFavorite(movie?.id) | async)" mat-raised-button color="primary" type="button" (click)="addFavorite()">
       <mat-icon>add</mat-icon>&nbsp;Add to My Favorites
     </button>
   </div>
   <div class="col-md-4">
-    <img [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movie?.backdrop_path" [alt]="movie?.original_title">
+    <img [src]="imgUrl + movie?.backdrop_path" [alt]="movie?.original_title">
   </div>
 </div>

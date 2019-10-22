@@ -1,0 +1,15 @@
+<h1 class="h3 pt-3">{{ !!movies.length ? 'My favorite movies' : 'You do not have any favorite' }}</h1>
+
+<div *ngIf="!!movies.length" class="row">
+  <div *ngFor="let movie of movies" class="col-sm-6 col-md-3 col-lg-2">
+    <mat-card class="mb-3">
+      <img mat-card-image [src]="imgUrl + movie.poster_path" [alt]="movie.original_title">
+      <mat-card-content [routerLink]="['/movies', movie.id]">{{ movie.title }}</mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="warn" (click)="removeFavorite(movie.id)">
+          <mat-icon>remove</mat-icon>&nbsp;Remove
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

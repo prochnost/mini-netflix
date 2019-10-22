@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { Movie, MoviesResp, MovieService } from '../movies/shared';
 import { ExceptionsService } from '../common';
 
@@ -19,7 +18,6 @@ export class SearchResultsComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: { searchResults: MoviesResp, searchTerms: string },
     private dialogRef: MatDialogRef<SearchResultsComponent>,
-    private router: Router,
     private movieService: MovieService,
     private exceptions: ExceptionsService
   ) { }
@@ -32,7 +30,7 @@ export class SearchResultsComponent implements OnInit {
     this.movies = (this.data.searchResults.results.length !== 0)
       ? this.data.searchResults.results.map(
           movie => {
-            movie.poster_url = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movie.poster_path;
+            movie.poster_url = this.movieService.getImgUrl() + movie.poster_path;
             return movie;
           }
         )
@@ -53,7 +51,7 @@ export class SearchResultsComponent implements OnInit {
           this.movies.push(
             ...next.results.map(
               movie => {
-                movie.poster_url = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movie.poster_path;
+                movie.poster_url = this.movieService.getImgUrl() + movie.poster_path;
                 return movie;
               }
             )

@@ -52,7 +52,7 @@ export class MoviesListComponent implements OnInit {
         this.movies = next.results.map(
           movie => {
             const title = movie.title;
-            movie.poster_url = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movie.poster_path;
+            movie.poster_url = this.movieService.getImgUrl() + movie.poster_path;
 
             // reduce title length to avoid overflow on the tile's header
             if (title.length >= 50) {

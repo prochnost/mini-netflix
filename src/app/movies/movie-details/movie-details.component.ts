@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Observable, of } from 'rxjs';
 import { MovieService, Movie } from '../shared';
 import { ExceptionsService } from '../../common';
 
@@ -14,6 +15,7 @@ export class MovieDetailsComponent implements OnInit {
   ratingColors: string[];
   genreNames: string[];
   languageNames: string[];
+  imgUrl: string;
 
   constructor(
     private movieService: MovieService,
@@ -25,6 +27,11 @@ export class MovieDetailsComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       this.getMovie(+params.id);
     });
+  }
+
+  isFavorite(id): Observable<any> {
+    const fav = sessionStorage.getItem('favoriteMovies');
+    return (fav === null || fav.indexOf(id + '') === -1 ? of(false) : of(true));
   }
 
   addFavorite() {
@@ -55,6 +62,7 @@ export class MovieDetailsComponent implements OnInit {
         for (const lang of movie.spoken_languages) {
           this.languageNames.push(lang.name);
         }
+        this.imgUrl = this.movieService.getImgUrl();
       },
       () => {
         this.exceptions.requestError();

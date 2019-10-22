@@ -8,15 +8,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { MovieModule } from './movies/movie.module';
 import { AppComponent } from './app.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { Error404Component } from './errors/404.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    Error404Component,
+    SidenavComponent
   ],
   entryComponents: [
     SearchResultsComponent
@@ -31,8 +38,11 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     MatDialogModule,
     MatListModule,
     MatSnackBarModule,
+    MatIconModule,
     MovieModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LayoutModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

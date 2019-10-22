@@ -2,6 +2,6 @@ mat-toolbar > a {
   color: #fff;
 }
 
-.container-fluid {
-  background-color: #222;
+.active {
+  color: #ffa726 !important;
 }

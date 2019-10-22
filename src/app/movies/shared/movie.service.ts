@@ -22,4 +22,8 @@ export class MovieService {
   searchMovies(searchTerm: string, page: number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}search/movie${this.params}&query=${searchTerm}&page=${page}&include_adult=false`);
   }
+
+  getImgUrl() {
+    return 'https://image.tmdb.org/t/p/w600_and_h900_bestv2';
+  }
 }
