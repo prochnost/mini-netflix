@@ -1,6 +1,6 @@
 # MiniNetflix
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3 and developed by ANTHONY CHIBINDA KANGORO (Mobile Web Specialist), as a first challenge in the Phase 2 of the Google Africa Developer Scholarship.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3 and developed by ANTHONY CHIBINDA KANGORO (Mobile Web Specialist), as a first challenge in the Phase 2 of the Google Africa Developer Scholarship program.
 
 ## Link to the web app deployed to Netlify
 
